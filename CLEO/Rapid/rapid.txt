@@ -1,0 +1,73 @@
+// This file was decompiled using SASCM.ini published by GTAG (http://gtag.gtagaming.com/opcode-database) on 14.6.207
+{$CLEO .cs}
+
+//-------------MAIN---------------
+0000: NOP 
+:Connect
+   not SAMP.Available
+jf @Start
+wait 400 
+goto @Connect
+:Start
+0B34: samp register_client_command "rid" to_label @Jeffwood 
+while true
+wait 0
+    if and
+    10@ == true
+    0AB0:   key_pressed 90
+    then
+    call @rel_544 0 16@ 
+    if and
+       not 15@ == 25 
+       not 15@ == 33 
+       not 15@ == 34 
+       not 15@ == 35 
+       not 15@ == 36 
+      16@ == 2 
+    then 
+    0812: AS_actor $PLAYER_ACTOR perform_animation "HIT_WALK" IFP "PED" framedelta 4.0 loopA 0 lockX 1 lockY 1 lockF 0 time 1 // versionB 
+    end
+
+   0393: actor $PLAYER_ACTOR perform_animation "python_fire" at 7.00 times_normal_rate 
+
+    0393: actor $PLAYER_ACTOR perform_animation "python_fire_poor" at 7.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "python_crouchfire" at 7.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "shotgun_fire" at 7.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "shotgun_fire_poor" at 7.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "shotgun_crouchfire" at 7.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "SilenceCrouchfire" at 7.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "Silence_fire" at 7.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "RIFLE_fire" at 6.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "RIFLE_fire_poor" at 6.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "RIFLE_crouchfire" at 6.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "colt45_fire" at 7.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "colt45_fire_poor" at 7.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "colt45_crouchfire" at 7.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "uzi_fire" at 7.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "uzi_fire_poor" at 7.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "uzi_crouchfire" at 7.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "flame_fire" at 6.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "flame_fire_poor" at 6.00 times_normal_rate 
+    0393: actor $PLAYER_ACTOR perform_animation "flame_crouchfire" at 6.00 times_normal_rate 
+
+    end
+end
+:Jeffwood
+0B12: 10@ = 10@ XOR 1 
+
+SAMP.CmdRet
+
+:Jeffwood1
+SAMP.CmdRet
+
+
+:rel_544
+0A96: 0@ = actor $PLAYER_ACTOR struct 
+0A8E: 1@ = 0@ + 1816 // int 
+0A8D: 1@ = read_memory 1@ size 1 virtual_protect 0 
+1@ *= 28 
+0A8E: 2@ = 0@ + 1440 // int 
+005A: 2@ += 1@ // (int) 
+2@ += 4 
+0A8D: 2@ = read_memory 2@ size 4 virtual_protect 0 
+ret 1 2@ 
