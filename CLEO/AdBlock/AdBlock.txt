@@ -1,0 +1,236 @@
+{$CLEO .cs}
+0000:NOP
+const
+Gos = 11@
+Arrest = 12@
+AntiCheat = 13@
+Ad = 14@
+ChangeNick = 15@
+ADM = 24@
+end
+if
+0AAB:   file_exists "cleo\AdBlock.ini"
+then
+    0AF0: Gos = get_int_from_ini_file "cleo\AdBlock.ini" section "AdBlock" key "Gos"
+    0AF0: Arrest = get_int_from_ini_file "cleo\AdBlock.ini" section "AdBlock" key "Arrest"
+    0AF0: AntiCheat = get_int_from_ini_file "cleo\AdBlock.ini" section "AdBlock" key "AntiCheat"
+    0AF0: Ad = get_int_from_ini_file "cleo\AdBlock.ini" section "AdBlock" key "Ad"
+    0AF0: ChangeNick = get_int_from_ini_file "cleo\AdBlock.ini" section "AdBlock" key "ChangeNick"
+    0AF0: ADM = get_int_from_ini_file "cleo\AdBlock.ini" section "AdBlock" key "ADM"
+else
+0AF1: write_int false to_ini_file "cleo\AdBlock.ini" section "AdBlock" key "Gos"
+0AF1: write_int false to_ini_file "cleo\AdBlock.ini" section "AdBlock" key "Arrest"
+0AF1: write_int false to_ini_file "cleo\AdBlock.ini" section "AdBlock" key "AntiCheat"
+0AF1: write_int false to_ini_file "cleo\AdBlock.ini" section "AdBlock" key "Ad"
+0AF1: write_int false to_ini_file "cleo\AdBlock.ini" section "AdBlock" key "ChangeNick"
+0AF1: write_int false to_ini_file "cleo\AdBlock.ini" section "AdBlock" key "ADM"
+Gos = false
+Arrest = false
+AntiCheat = false
+Ad = false
+ChangeNick = false
+ADM = false
+end
+:Connect
+   not SAMP.Available
+jf @Start
+wait 400 
+goto @Connect
+:Start
+
+0B78: "{7FFF00}[AdBlock]{FFFFE0} Автор {FFD700}Cesar Jeffwood." 
+0B34: samp register_client_command "adblock" to_label @Jeffwoods
+0BE3: raknet setup_incoming_rpc_hook @RAKNET
+alloc 9@ 256
+
+while true
+wait 0
+    if 
+        0B3C: samp is_dialog_responded id 5623 button 22@ list_item 23@ input_text 0
+    then
+        if 
+            22@ == 1
+        then 
+            if 23@ == 0
+            then 
+            0b12: Gos = Gos XOR 1
+            0AF1: write_int Gos to_ini_file "cleo\AdBlock.ini" section "AdBlock" key "Gos"
+            end
+            if 23@ == 1 
+            then 
+            0b12: Arrest = Arrest XOR 1
+            0AF1: write_int Arrest to_ini_file "cleo\AdBlock.ini" section "AdBlock" key "Arrest"
+            end
+            if 23@ == 2 
+            then 
+            0b12: AntiCheat = AntiCheat XOR 1
+            0AF1: write_int AntiCheat to_ini_file "cleo\AdBlock.ini" section "AdBlock" key "AntiCheat"
+            end
+            if 23@ == 3 
+            then 
+            0b12: Ad = Ad XOR 1
+            0AF1: write_int Ad to_ini_file "cleo\AdBlock.ini" section "AdBlock" key "Ad"
+            end
+            if 23@ == 4 
+            then 
+            0b12: ChangeNick = ChangeNick XOR 1
+            0AF1: write_int ChangeNick to_ini_file "cleo\AdBlock.ini" section "AdBlock" key "ChangeNick"
+            end
+            if 23@ == 5 
+            then 
+            0b12: ADM = ADM XOR 1
+            0AF1: write_int ADM to_ini_file "cleo\AdBlock.ini" section "AdBlock" key "ADM"
+            end
+            call @Dialog 6 Gos Arrest  AntiCheat Ad ChangeNick  ADM
+        end 
+    end
+end
+
+:Jeffwoods
+//gosub @Dialog
+call @Dialog 6 Gos Arrest  AntiCheat Ad ChangeNick  ADM
+samp.CmdRet()
+
+:RAKNET
+if or
+Gos == true
+Arrest == true
+AntiCheat == true
+Ad == true
+ChangeNick == true
+ADM == true
+then
+    0BE5: raknet 5@ = get_hook_param 0
+    0BE5: raknet 6@ = get_hook_param 1
+    if
+    6@ == 93
+    then
+        0BE7: raknet 7@ = bit_stream_read 5@ type 3
+        0BE7: raknet 8@ = bit_stream_read 5@ type 3
+        0C11: memset destination 9@ value 0 size 256
+        0BE8: raknet bit_stream 5@ read_array 9@ size 8@
+        0C0F: array 9@ element 8@ = 0x00 
+        if Gos == true
+        then
+            if 
+            0C18: 0 = 9@ "Гос. новости:"
+            then
+            0B78: "{7FFF00}[AdBlock] {0000FF} %s" 9@
+             0BE0: raknet hook_ret false       
+            end
+        end
+        if Arrest == true
+        then
+            if 
+            0C18: 0 = 9@ "выходит при аресте"
+            then
+            0B78: "{7FFF00}[AdBlock] {FF0000} %s" 9@
+             0BE0: raknet hook_ret false       
+            end
+        end
+        if AntiCheat == true
+        then
+            if 
+            0C18: 0 = 9@ "[Античит]"
+            then
+           0B78: "{7FFF00}[AdBlock] {FF0000} %s" 9@
+             0BE0: raknet hook_ret false       
+            end
+        end
+        if Ad == true
+        then
+            if or
+            0C18: 0 = 9@ "| Отправил"
+            0C18: 0 = 9@ "Объявление проверил"
+            then
+            0B78: "{7FFF00}[AdBlock] {FF8C00} %s" 9@
+             0BE0: raknet hook_ret false       
+            end
+        end
+        if ChangeNick == true
+        then
+            if 
+            0C18: 0 = 9@ "сменил имя на"
+            then
+            0B78: "{7FFF00}[AdBlock] {FFFF00} %s" 9@
+             0BE0: raknet hook_ret false       
+            end
+        end
+        if ADM == true
+        then
+            if and
+            0C18: 0 = 9@ "Администратор"
+            0C18: 0 = 9@ "Причина:" 
+            then
+            0B78: "{7FFF00}[AdBlock] {FF6347} %s" 9@
+             0BE0: raknet hook_ret false       
+            end
+        end
+    end
+end
+0BE0: raknet hook_ret true
+
+
+:Dialog
+0AC6: 6@ = label @BigBuffer offset 
+alloc 7@ 64
+alloc 8@ 64
+alloc 9@ 64
+alloc 10@ 64
+alloc 11@ 64
+alloc 12@ 64
+if 0@ == true 
+then 
+format  7@ "Гос Новости%c%c%c{7FFF00}ON" 0x9 0x9 0x9
+else 
+format  7@ "Гос Новости%c%c%c{FF0000}OFF" 0x9 0x9 0x9
+end  
+if 1@ == true 
+then 
+format  8@ "Выход при аресте%c%c{7FFF00}ON" 0x9 0x9
+else 
+format  8@ "Выход при аресте%c%c{FF0000}OFF"   0x9 0x9
+end  
+if 2@ == true 
+then 
+format  9@ "Античит%c%c%c{7FFF00}ON" 0x9 0x9 0x9
+else 
+format  9@ "Античит%c%c%c{FF0000}OFF" 0x9  0x9 0x9
+end  
+if 3@ == true 
+then 
+format  10@ "Объявление%c%c%c{7FFF00}ON"  0x9 0x9 0x9
+else 
+format  10@ "Объявление%c%c%c{FF0000}OFF"  0x9 0x9 0x9
+end  
+if 4@ == true 
+then 
+format  11@ "Смена ника%c%c%c{7FFF00}ON" 0x9 0x9  0x9
+else 
+format  11@ "Смена ника%c%c%c{FF0000}OFF"  0x9  0x9  0x9
+end  
+if 5@ == true 
+then 
+format  12@ "Наказания от админов%c%c{7FFF00}ON"  0x9  0x9
+else 
+format  12@ "Наказания от админов%c%c{FF0000}OFF" 0x9 0x9
+end  
+format 6@ = "%s%c%s%c%s%c%s%c%s%c%s%c" 7@  0xA 8@   0xA 9@   0xA 10@   0xA 11@ 0xA 12@ 0x0
+0B3B: samp show_dialog id 5623 caption "{7FFF00}[AdBlock] {FF8C00} by Cesar Jeffwood" text 6@ button_1 "Выбрать" button_2 "Закрыть" style 2
+free 7@
+free 8@
+free 9@
+free 10@
+free 11@
+free 12@
+ret 0
+
+:BigBuffer // 256 + 1
+HEX
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+    0  
+END
