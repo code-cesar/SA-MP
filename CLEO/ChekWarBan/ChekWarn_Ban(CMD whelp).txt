@@ -82,7 +82,7 @@ wait 0
                         end
                     until 0AD6:   end_of_file 24@ reached   
                 end
-                    0B3B: samp show_dialog id 8893 caption "{FFCC00}LogWarn(Ban) by [Cesar Jeffwood]" text 23@ button_1 "Закрыть" button_2 "" style 0
+                    0B3B: samp show_dialog id 8893 caption "{FFCC00}LogWarn(Ban) by [Cesar Jeffwood]" text 23@ button_1 "Р—Р°РєСЂС‹С‚СЊ" button_2 "" style 0
                     0A9B: closefile 24@
             end
      
@@ -104,7 +104,7 @@ wait 0
                         end
                     until 0AD6:   end_of_file 24@ reached   
                 end
-                0B3B: samp show_dialog id 8893 caption "{FFCC00}LogWarn(Ban) by [Cesar Jeffwood]" text 23@ button_1 "Закрыть" button_2 "" style 0
+                0B3B: samp show_dialog id 8893 caption "{FFCC00}LogWarn(Ban) by [Cesar Jeffwood]" text 23@ button_1 "Р—Р°РєСЂС‹С‚СЊ" button_2 "" style 0
                 0A9B: closefile 24@
             end
      
@@ -126,7 +126,7 @@ wait 0
                         end
                     until 0AD6:   end_of_file 24@ reached   
                 end
-                0B3B: samp show_dialog id 8893 caption "{FFCC00}LogWarn(Ban) by [Cesar Jeffwood]" text 23@ button_1 "Закрыть" button_2 "" style 0
+                0B3B: samp show_dialog id 8893 caption "{FFCC00}LogWarn(Ban) by [Cesar Jeffwood]" text 23@ button_1 "Р—Р°РєСЂС‹С‚СЊ" button_2 "" style 0
                 0A9B: closefile 24@
             end
             if and
@@ -147,7 +147,7 @@ wait 0
                         end
                     until 0AD6:   end_of_file 24@ reached   
                     end
-                    0B3B: samp show_dialog id 8893 caption "{FFCC00}LogWarn(Ban) by [Cesar Jeffwood]" text 23@ button_1 "Закрыть" button_2 "" style 0
+                    0B3B: samp show_dialog id 8893 caption "{FFCC00}LogWarn(Ban) by [Cesar Jeffwood]" text 23@ button_1 "Р—Р°РєСЂС‹С‚СЊ" button_2 "" style 0
                     0A9B: closefile 24@
             end
             if  and
@@ -168,7 +168,7 @@ wait 0
                         end
                     until 0AD6:   end_of_file 24@ reached   
                     end  
-                    0B3B: samp show_dialog id 8893 caption "{FFCC00}LogWarn(Ban) by [Cesar Jeffwood]" text 23@ button_1 "Закрыть" button_2 "" style 0
+                    0B3B: samp show_dialog id 8893 caption "{FFCC00}LogWarn(Ban) by [Cesar Jeffwood]" text 23@ button_1 "Р—Р°РєСЂС‹С‚СЊ" button_2 "" style 0
                     0A9B: closefile 24@
              end
             
@@ -178,8 +178,8 @@ end
 
 :Jeffwoods
 0AC8: 29@ = allocate_memory_size 700
-format 29@ "Названия банды%cКол-во Warn%cGrove%c%d%cVagos%c%d%cBallas%c%d%cRifa%c%d%cAztecas%c%d" 0x9 0xA 0x9 Grove 0xA  0x9 Vagos 0xA  0x9 Ballas 0xA 0x9 Rifa 0xA 0x9 Aztec
-0B3B: samp show_dialog id 8892 caption "{FFCC00}Chek Warn(Ban) by [Cesar Jeffwood]" text 29@ button_1 "Выбрать" button_2 "Закрыть" style 5
+format 29@ "РќР°Р·РІР°РЅРёСЏ Р±Р°РЅРґС‹%cРљРѕР»-РІРѕ Warn%cGrove%c%d%cVagos%c%d%cBallas%c%d%cRifa%c%d%cAztecas%c%d" 0x9 0xA 0x9 Grove 0xA  0x9 Vagos 0xA  0x9 Ballas 0xA 0x9 Rifa 0xA 0x9 Aztec
+0B3B: samp show_dialog id 8892 caption "{FFCC00}Chek Warn(Ban) by [Cesar Jeffwood]" text 29@ button_1 "Р’С‹Р±СЂР°С‚СЊ" button_2 "Р—Р°РєСЂС‹С‚СЊ" style 5
 samp.CmdRet()
 
 :Jeffwoods_1
@@ -228,7 +228,7 @@ end
 samp.CmdRet()
 :Jeffwoods_3
 0AC6: 31@ = label @HEXI offset
-0B3B: samp show_dialog id 8900 caption "{FF0000}HELP{FF4500}| Warn(Ban) Chek{FFA500} [by Cesar Jeffwood]" text 31@ button_1 "Закрыть" button_2 "" style 0
+0B3B: samp show_dialog id 8900 caption "{FF0000}HELP{FF4500}| Warn(Ban) Chek{FFA500} [by Cesar Jeffwood]" text 31@ button_1 "Р—Р°РєСЂС‹С‚СЊ" button_2 "" style 0
 samp.CmdRet()
 
 :Jeffwoods_4
@@ -275,11 +275,11 @@ end
 samp.CmdRet()
 :HEXI
 hex
-"{FF8C00}/wchek{FFA500}\t - Просмотр кол-во варнов(банов) и их выдачи\n\n"
-"{FF8C00}/wrel{FFA500}\t\t - Очистка кол-во варнов(банов) {FF0000}(НО НЕ ЛОГОВ)\n\n"
-"{FF8C00}/wrfile{FFA500}\t\t - Очистка логов варнов(банов) {FF0000}(Посредством удаления файлов)\n\n"
-"{FF8C00}/wrelog{FFA500}\t - Очистка кол-во варнов(банов) + логов\n\n"
-"{FFa500}Подписывайся на паблик {FF0000}vk.com/servicescj{FFa500} и {FF0000}vk.com/jeffwoodclan{FFa500},заходи на сайт {FF0000}blast.hk{FFa500}\nПрошу сохранить авторские права.\n \t\t{{FF0000}by Programist Jeffwood ^_^ {FFa500}}\0"
+"{FF8C00}/wchek{FFA500}\t - РџСЂРѕСЃРјРѕС‚СЂ РєРѕР»-РІРѕ РІР°СЂРЅРѕРІ(Р±Р°РЅРѕРІ) Рё РёС… РІС‹РґР°С‡Рё\n\n"
+"{FF8C00}/wrel{FFA500}\t\t - РћС‡РёСЃС‚РєР° РєРѕР»-РІРѕ РІР°СЂРЅРѕРІ(Р±Р°РЅРѕРІ) {FF0000}(РќРћ РќР• Р›РћР“РћР’)\n\n"
+"{FF8C00}/wrfile{FFA500}\t\t - РћС‡РёСЃС‚РєР° Р»РѕРіРѕРІ РІР°СЂРЅРѕРІ(Р±Р°РЅРѕРІ) {FF0000}(РџРѕСЃСЂРµРґСЃС‚РІРѕРј СѓРґР°Р»РµРЅРёСЏ С„Р°Р№Р»РѕРІ)\n\n"
+"{FF8C00}/wrelog{FFA500}\t - РћС‡РёСЃС‚РєР° РєРѕР»-РІРѕ РІР°СЂРЅРѕРІ(Р±Р°РЅРѕРІ) + Р»РѕРіРѕРІ\n\n"
+"{FFa500}РџРѕРґРїРёСЃС‹РІР°Р№СЃСЏ РЅР° РїР°Р±Р»РёРє {FF0000}vk.com/servicescj{FFa500} Рё {FF0000}vk.com/jeffwoodclan{FFa500},Р·Р°С…РѕРґРё РЅР° СЃР°Р№С‚ {FF0000}blast.hk{FFa500}\nРџСЂРѕС€Сѓ СЃРѕС…СЂР°РЅРёС‚СЊ Р°РІС‚РѕСЂСЃРєРёРµ РїСЂР°РІР°.\n \t\t{{FF0000}by Programist Jeffwood ^_^ {FFa500}}\0"
 end
 
 :1
@@ -294,17 +294,17 @@ then
     0BE8: raknet bit_stream 5@ read_array 9@ size 8@
     0C0F: array 9@ element 8@ = 0x00 
     if and
-    0C18: 0 = 9@ "Администратор"
-    0C18: 0 = 9@ "Причина:" 
+    0C18: 0 = 9@ "РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ"
+    0C18: 0 = 9@ "РџСЂРёС‡РёРЅР°:" 
     then
          if or
         0C18: 0 = 9@ "Vagos"
         0C18: 0 = 9@ "vagos"
-        0C18: 0 = 9@ "вагос"
-        0C18: 0 = 9@ "Вагос"
-        0C18: 0 = 9@ "вагас"
-        0C18: 0 = 9@ "Вагас"
-        0C18: 0 = 9@ "мфгос"
+        0C18: 0 = 9@ "РІР°РіРѕСЃ"
+        0C18: 0 = 9@ "Р’Р°РіРѕСЃ"
+        0C18: 0 = 9@ "РІР°РіР°СЃ"
+        0C18: 0 = 9@ "Р’Р°РіР°СЃ"
+        0C18: 0 = 9@ "РјС„РіРѕСЃ"
         0C18: 0 = 9@ "dfujc"
         then  
             Vagos += 1
@@ -312,7 +312,7 @@ then
             then
                 call @Time 0 God Mes Chis Chas Min Sec 
                 0AD9: write_formatted_text "{FFCC00}[%d.%d.%d %.2d:%.2d:%.2d]{FFFFFF}%s%c" in_file 24@ Chis Mes God Chas Min Sec 9@ 0xA  
-                0A9B: closefile 24@ // ????????? ????, ?.?. ?? ??? ?????? ?? ?????
+                0A9B: closefile 24@ 
             end
             if 
             0AAB:   file_exists "cleo\LogWarn\setting.ini"
@@ -321,20 +321,20 @@ then
             end
         end
         if or
-        0C18: 0 = 9@ "грув"
-        0C18: 0 = 9@ "Грув"
+        0C18: 0 = 9@ "РіСЂСѓРІ"
+        0C18: 0 = 9@ "Р“СЂСѓРІ"
         0C18: 0 = 9@ "Grove"
         0C18: 0 = 9@ "grov"
         0C18: 0 = 9@ "uhed"
-        0C18: 0 = 9@ "пкщму"
-        0C18: 0 = 9@ "пкщм"
+        0C18: 0 = 9@ "РїРєС‰РјСѓ"
+        0C18: 0 = 9@ "РїРєС‰Рј"
         then
           Grove += 1
             if 0A9A: 24@ = openfile "cleo\LogWarn\grove.ini" mode "a"
             then
                 call @Time 0 God Mes Chis Chas Min Sec 
                 0AD9: write_formatted_text "{FFCC00}[%d.%d.%d %.2d:%.2d:%.2d]{FFFFFF}%s%c" in_file 24@ Chis Mes God Chas Min Sec 9@ 0xA   
-                0A9B: closefile 24@ // ????????? ????, ?.?. ?? ??? ?????? ?? ?????
+                0A9B: closefile 24@ 
             end
             if 
             0AAB:   file_exists "cleo\LogWarn\setting.ini"
@@ -345,11 +345,11 @@ then
         if or
         0C18: 0 = 9@ "Ballas"
         0C18: 0 = 9@ "ballas"
-        0C18: 0 = 9@ "баллас"
-        0C18: 0 = 9@ "балас"
-        0C18: 0 = 9@ "Балас"
-        0C18: 0 = 9@ "Баллас"
-        0C18: 0 = 9@ "ифддфы"
+        0C18: 0 = 9@ "Р±Р°Р»Р»Р°СЃ"
+        0C18: 0 = 9@ "Р±Р°Р»Р°СЃ"
+        0C18: 0 = 9@ "Р‘Р°Р»Р°СЃ"
+        0C18: 0 = 9@ "Р‘Р°Р»Р»Р°СЃ"
+        0C18: 0 = 9@ "РёС„РґРґС„С‹"
         0C18: 0 = 9@ ",fkkfc"
         then
         Ballas += 1
@@ -357,7 +357,7 @@ then
         then
             call @Time 0 God Mes Chis Chas Min Sec 
             0AD9: write_formatted_text "{FFCC00}[%d.%d.%d %.2d:%.2d:%.2d]{FFFFFF}%s%c" in_file 24@ Chis Mes God Chas Min Sec 9@ 0xA   
-            0A9B: closefile 24@ // ????????? ????, ?.?. ?? ??? ?????? ?? ?????
+            0A9B: closefile 24@ 
         end
         if 
         0AAB:   file_exists "cleo\LogWarn\setting.ini"
@@ -367,10 +367,10 @@ then
         end
         if or
         0C18: 0 = 9@ "Rifa"
-        0C18: 0 = 9@ "рифа"
-        0C18: 0 = 9@ "Рифа"
+        0C18: 0 = 9@ "СЂРёС„Р°"
+        0C18: 0 = 9@ "Р РёС„Р°"
         0C18: 0 = 9@ "rifa"
-        0C18: 0 = 9@ "кшаф"
+        0C18: 0 = 9@ "РєС€Р°С„"
         0C18: 0 = 9@ "hbaf"
         then
          Rifa += 1
@@ -378,7 +378,7 @@ then
             then
                 call @Time 0 God Mes Chis Chas Min Sec 
                 0AD9: write_formatted_text "{FFCC00}[%d.%d.%d %.2d:%.2d:%.2d]{FFFFFF}%s%c" in_file 24@ Chis Mes God Chas Min Sec 9@ 0xA 
-                0A9B: closefile 24@ // ????????? ????, ?.?. ?? ??? ?????? ?? ?????
+                0A9B: closefile 24@
             end
             if 
             0AAB:   file_exists "cleo\LogWarn\setting.ini"
@@ -391,9 +391,9 @@ then
         0C18: 0 = 9@ "Aztec"
         0C18: 0 = 9@ "aztecas"
         0C18: 0 = 9@ "aztec"
-        0C18: 0 = 9@ "ацтек"
-        0C18: 0 = 9@ "фяеусфы"
-        0C18: 0 = 9@ "фяеус"
+        0C18: 0 = 9@ "Р°С†С‚РµРє"
+        0C18: 0 = 9@ "С„СЏРµСѓСЃС„С‹"
+        0C18: 0 = 9@ "С„СЏРµСѓСЃ"
         0C18: 0 = 9@ "fwntr"
         then
           Aztec += 1
@@ -401,7 +401,7 @@ then
             then
                 call @Time 0 God Mes Chis Chas Min Sec 
                 0AD9: write_formatted_text "{FFCC00}[%d.%d.%d %.2d:%.2d:%.2d]{FFFFFF}%s%c" in_file 24@ Chis Mes God Chas Min Sec 9@ 0xA 
-                0A9B: closefile 24@ // ????????? ????, ?.?. ?? ??? ?????? ?? ?????
+                0A9B: closefile 24@ 
             end
             if 
             0AAB:   file_exists "cleo\LogWarn\setting.ini"
