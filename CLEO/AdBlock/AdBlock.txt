@@ -38,7 +38,7 @@ wait 400
 goto @Connect
 :Start
 
-0B78: "{7FFF00}[AdBlock]{FFFFE0} Автор {FFD700}Cesar Jeffwood." 
+0B78: "{7FFF00}[AdBlock]{FFFFE0} РђРІС‚РѕСЂ {FFD700}Cesar Jeffwood." 
 0B34: samp register_client_command "adblock" to_label @Jeffwoods
 0BE3: raknet setup_incoming_rpc_hook @RAKNET
 alloc 9@ 256
@@ -113,7 +113,7 @@ then
         if Gos == true
         then
             if 
-            0C18: 0 = 9@ "Гос. новости:"
+            0C18: 0 = 9@ "Р“РѕСЃ. РЅРѕРІРѕСЃС‚Рё:"
             then
             0B78: "{7FFF00}[AdBlock] {0000FF} %s" 9@
              0BE0: raknet hook_ret false       
@@ -122,7 +122,7 @@ then
         if Arrest == true
         then
             if 
-            0C18: 0 = 9@ "выходит при аресте"
+            0C18: 0 = 9@ "РІС‹С…РѕРґРёС‚ РїСЂРё Р°СЂРµСЃС‚Рµ"
             then
             0B78: "{7FFF00}[AdBlock] {FF0000} %s" 9@
              0BE0: raknet hook_ret false       
@@ -131,7 +131,7 @@ then
         if AntiCheat == true
         then
             if 
-            0C18: 0 = 9@ "[Античит]"
+            0C18: 0 = 9@ "[РђРЅС‚РёС‡РёС‚]"
             then
            0B78: "{7FFF00}[AdBlock] {FF0000} %s" 9@
              0BE0: raknet hook_ret false       
@@ -140,8 +140,8 @@ then
         if Ad == true
         then
             if or
-            0C18: 0 = 9@ "| Отправил"
-            0C18: 0 = 9@ "Объявление проверил"
+            0C18: 0 = 9@ "| РћС‚РїСЂР°РІРёР»"
+            0C18: 0 = 9@ "РћР±СЉСЏРІР»РµРЅРёРµ РїСЂРѕРІРµСЂРёР»"
             then
             0B78: "{7FFF00}[AdBlock] {FF8C00} %s" 9@
              0BE0: raknet hook_ret false       
@@ -150,7 +150,7 @@ then
         if ChangeNick == true
         then
             if 
-            0C18: 0 = 9@ "сменил имя на"
+            0C18: 0 = 9@ "СЃРјРµРЅРёР» РёРјСЏ РЅР°"
             then
             0B78: "{7FFF00}[AdBlock] {FFFF00} %s" 9@
              0BE0: raknet hook_ret false       
@@ -159,8 +159,8 @@ then
         if ADM == true
         then
             if and
-            0C18: 0 = 9@ "Администратор"
-            0C18: 0 = 9@ "Причина:" 
+            0C18: 0 = 9@ "РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ"
+            0C18: 0 = 9@ "РџСЂРёС‡РёРЅР°:" 
             then
             0B78: "{7FFF00}[AdBlock] {FF6347} %s" 9@
              0BE0: raknet hook_ret false       
@@ -181,42 +181,42 @@ alloc 11@ 64
 alloc 12@ 64
 if 0@ == true 
 then 
-format  7@ "Гос Новости%c%c%c{7FFF00}ON" 0x9 0x9 0x9
+format  7@ "Р“РѕСЃ РќРѕРІРѕСЃС‚Рё%c%c%c{7FFF00}ON" 0x9 0x9 0x9
 else 
-format  7@ "Гос Новости%c%c%c{FF0000}OFF" 0x9 0x9 0x9
+format  7@ "Р“РѕСЃ РќРѕРІРѕСЃС‚Рё%c%c%c{FF0000}OFF" 0x9 0x9 0x9
 end  
 if 1@ == true 
 then 
-format  8@ "Выход при аресте%c%c{7FFF00}ON" 0x9 0x9
+format  8@ "Р’С‹С…РѕРґ РїСЂРё Р°СЂРµСЃС‚Рµ%c%c{7FFF00}ON" 0x9 0x9
 else 
-format  8@ "Выход при аресте%c%c{FF0000}OFF"   0x9 0x9
+format  8@ "Р’С‹С…РѕРґ РїСЂРё Р°СЂРµСЃС‚Рµ%c%c{FF0000}OFF"   0x9 0x9
 end  
 if 2@ == true 
 then 
-format  9@ "Античит%c%c%c{7FFF00}ON" 0x9 0x9 0x9
+format  9@ "РђРЅС‚РёС‡РёС‚%c%c%c{7FFF00}ON" 0x9 0x9 0x9
 else 
-format  9@ "Античит%c%c%c{FF0000}OFF" 0x9  0x9 0x9
+format  9@ "РђРЅС‚РёС‡РёС‚%c%c%c{FF0000}OFF" 0x9  0x9 0x9
 end  
 if 3@ == true 
 then 
-format  10@ "Объявление%c%c%c{7FFF00}ON"  0x9 0x9 0x9
+format  10@ "РћР±СЉСЏРІР»РµРЅРёРµ%c%c%c{7FFF00}ON"  0x9 0x9 0x9
 else 
-format  10@ "Объявление%c%c%c{FF0000}OFF"  0x9 0x9 0x9
+format  10@ "РћР±СЉСЏРІР»РµРЅРёРµ%c%c%c{FF0000}OFF"  0x9 0x9 0x9
 end  
 if 4@ == true 
 then 
-format  11@ "Смена ника%c%c%c{7FFF00}ON" 0x9 0x9  0x9
+format  11@ "РЎРјРµРЅР° РЅРёРєР°%c%c%c{7FFF00}ON" 0x9 0x9  0x9
 else 
-format  11@ "Смена ника%c%c%c{FF0000}OFF"  0x9  0x9  0x9
+format  11@ "РЎРјРµРЅР° РЅРёРєР°%c%c%c{FF0000}OFF"  0x9  0x9  0x9
 end  
 if 5@ == true 
 then 
-format  12@ "Наказания от админов%c%c{7FFF00}ON"  0x9  0x9
+format  12@ "РќР°РєР°Р·Р°РЅРёСЏ РѕС‚ Р°РґРјРёРЅРѕРІ%c%c{7FFF00}ON"  0x9  0x9
 else 
-format  12@ "Наказания от админов%c%c{FF0000}OFF" 0x9 0x9
+format  12@ "РќР°РєР°Р·Р°РЅРёСЏ РѕС‚ Р°РґРјРёРЅРѕРІ%c%c{FF0000}OFF" 0x9 0x9
 end  
 format 6@ = "%s%c%s%c%s%c%s%c%s%c%s%c" 7@  0xA 8@   0xA 9@   0xA 10@   0xA 11@ 0xA 12@ 0x0
-0B3B: samp show_dialog id 5623 caption "{7FFF00}[AdBlock] {FF8C00} by Cesar Jeffwood" text 6@ button_1 "Выбрать" button_2 "Закрыть" style 2
+0B3B: samp show_dialog id 5623 caption "{7FFF00}[AdBlock] {FF8C00} by Cesar Jeffwood" text 6@ button_1 "Р’С‹Р±СЂР°С‚СЊ" button_2 "Р—Р°РєСЂС‹С‚СЊ" style 2
 free 7@
 free 8@
 free 9@
